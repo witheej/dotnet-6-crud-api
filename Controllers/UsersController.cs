@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Models.Users;
 using WebApi.Services;
+using System.Threading;
 
 [ApiController]
 [Route("[controller]")]
@@ -24,6 +25,7 @@ public class UsersController : ControllerBase
     public IActionResult GetAll()
     {
         var users = _userService.GetAll();
+        Thread.Sleep(1000);
         return Ok(users);
     }
 
